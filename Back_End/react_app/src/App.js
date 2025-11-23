@@ -2,12 +2,16 @@
 // import Attendance from "./Components/Attendance"
 // import Car from "./Components/Car"
 // import Weather from "./Components/Class_Task/Weather";
-import Login from "./Components/Class_Task/Login"
+// import Login from "./Components/Class_Task/Login"
 // import Table from "./Components/Class_Task/Table"
 // import Form from "./Components/Class/Form"
+import Inputtxt from "./Components/Class/Inputtxt";
+
 function App() {
 
-  // const obj = [
+
+
+    // const obj = [
   //   { id: 1, name: "jagath", age: 23, dept: "devloper", salary: 20000 },
   //   { id: 2, name: "suriya", age: 24, dept: "devloper", salary: 40000 },
   //   { id: 3, name: "hari", age: 25, dept: "prodevloper", salary: 50000 },
@@ -26,7 +30,8 @@ function App() {
 
   return (
     <>
-      <Login />
+      {/* <Login /> */}
+      <Inputtxt />
     </>
   );
 }
