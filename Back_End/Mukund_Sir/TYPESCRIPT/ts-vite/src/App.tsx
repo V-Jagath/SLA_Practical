@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <h1>This is a Heading</h1>
-      {/* <Footer /> */}
+      <Footer />
       <Task />
     </div>
   )
