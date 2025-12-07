@@ -1,4 +1,3 @@
-
 const Education = () => {
     return (
         <>
@@ -15,7 +14,7 @@ export default Education;
 export const School = () => {
     return (
         <>
-            <h1>This is School Component</h1>
+            <h3>This is School Component</h3>
         </>
     )
 };
@@ -23,7 +22,7 @@ export const School = () => {
 export const College = () => {
     return (
         <>
-            <h1>This is College Component</h1>
+            <h3>This is College Component</h3>
         </>
     )
 };
@@ -31,7 +30,7 @@ export const College = () => {
 export const Institute = () => {
     return (
         <>
-            <h1>This is Institute Component</h1>
+            <h3>This is Institute Component</h3>
         </>
     )
 };
