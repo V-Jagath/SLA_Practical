@@ -1,12 +1,15 @@
 // import Home from './Pages/SingleComponent/Home' 
-import HomePage from './Pages/HomePage'
-import Planet from './Pages/Planet'
+// import HomePage from './Pages/HomePage'
+// import Planet from './Pages/Planet'
+
+import Day11Task from "./ClassTask/Day11Task";
 
 const App = () => {
   return (
     <>
-      <Planet />
-      <HomePage />
+      <Day11Task />
+      {/* <Planet />
+      <HomePage /> */}
     </>
   )
 }
