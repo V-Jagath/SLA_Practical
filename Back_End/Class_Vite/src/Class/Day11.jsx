@@ -1,6 +1,5 @@
 const Day11 = () => {
 
-
     const projectTitle = "HR"
     const location = "Chennai"
     const company = "TCS"
@@ -23,10 +22,6 @@ const Day11 = () => {
             {isActive && "TRUE"}
 
             {number === 2 ? "even" : "odd"}
-
-            <p> The Boy Name is {boyName}. that boy location is {location}.one day that boy going friends to {shopName} the ownername is {ownerName}.my friend is
-            </p>
-
         </>
     )
 }
