@@ -18,7 +18,7 @@ const Skills = () => {
         { img: bootstrap, skill: "Bootstrap 5", description: "UI components & grid system markup" },
         { img: javascript, skill: "Java Script ES6+", description: "Dynamic & interactive web apps" },
         { img: typescript, skill: "TypeScript", description: "find a runtime error" },
-    ]
+    ];
 
     return (<>
 
@@ -26,7 +26,7 @@ const Skills = () => {
             <h1 className='text-center text-white text-3xl text-bolder'>Technical Skills</h1>
             <div className='flex p-5 justify-around'>
                 {skill.map((e, i) => (
-                    <div key={i} className='bg-gray-800 rounded-2xl text-white flex flex-col gap-3 justify-center items-center text-center h-50 w-50 p-5'>
+                    <div key={i} className='bg-gray-800 rounded-2xl text-white flex flex-col  gap-3 justify-center items-center text-center h-50 w-50 p-5'>
                         <div>
                             <img src={e.img} className='w-20 rounded' alt="img" />
                         </div>
