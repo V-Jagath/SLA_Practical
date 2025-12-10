@@ -1,7 +1,7 @@
 import Resume from '../ClassTask/Resume'
 const Day12Task = () => {
 
-    const directorName: any[] = [
+    const directorName: DirMovie[] = [
         {
             director: "Lokesh Kanagaraj",
             movies: [
@@ -30,24 +30,30 @@ const Day12Task = () => {
         }
     ];
 
+    type Movie = {
+        title: string,
+        script: string
+    };
+
+    type DirMovie = {
+        director: string,
+        movies: Movie[]
+    }
+
     return (
         <>
             <h1>Director Name and Movie Name</h1>
             <div style={{ padding: "10px" }}>{directorName.map((e, i) => (
-                <>
-                    <div style={{ background: "grey" }} key={i}>
-                        <div>
-                            <h2 style={{ color: "white", background: "black" }}>{e.director}</h2>
-                            <h3  >{e.movies.map((movie: any, i: number) => (
-                                <>
-                                    <p key={i}>{i + 1}.{movie.title}</p>
-                                </>
-                            ))}</h3>
-                        </div>
-                    </div>
-                </>
-            ))}
 
+                <div style={{ background: "grey" }} key={i}>
+                    <div>
+                        <h2 style={{ color: "white", background: "black" }}>{i + 1}. {e.director}</h2>
+                        {e.movies.map((movie, j) => (
+                            <h3 key={j} >{j + 1}.{movie.title}</h3>
+                        ))}
+                    </div>
+                </div>
+            ))}
             </div>
             <Resume />
         </>

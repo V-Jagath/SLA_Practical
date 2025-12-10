@@ -49,7 +49,6 @@ const Resume = () => {
 
                     <h3>Education Details</h3>
                     <p>i am Completed {e.Education.degree} in {e.Education.passedOut} from {e.Education.college}</p>
-                    <p></p>
 
                     <h3>Company Details</h3>
                     <p>I am Worked in{e.company.companyName} for last 3 years and my Date of Joining is {e.company.DOJ}</p>
