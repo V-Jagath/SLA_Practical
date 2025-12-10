@@ -3,7 +3,7 @@ const Day11Task = () => {
     const box: boolean = true;
     const number: number = 31;
 
-    const value: any = true;
+    const value: any = 0;
 
     const color: string = "yellow";
 

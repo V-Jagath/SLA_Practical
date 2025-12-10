@@ -3,7 +3,8 @@ import './App.css'
 // ctrl space import  - shortcut
 
 import Day11 from "./Class/Day11";
-import Day12 from "./Class/Day12";
+// import Day12 from "./Class/Day12";
+import Day13 from "./Class/Day13";
 
 const App = () => {
 
@@ -13,7 +14,8 @@ const App = () => {
         <div>This is Object Component</div>
       </div> */}
       {/* <Day11 /> */}
-      <Day12 />
+      {/* // <Day12 /> */}
+      <Day13 />
 
 
     </>
