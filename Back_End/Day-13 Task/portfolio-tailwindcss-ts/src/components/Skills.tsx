@@ -17,7 +17,7 @@ const Skills = () => {
         { img: css, skill: "CSS3", description: "Responsive design & animation" },
         { img: bootstrap, skill: "Bootstrap 5", description: "UI components & grid system markup" },
         { img: javascript, skill: "Java Script ES6+", description: "Dynamic & interactive web apps" },
-        { img: typescript, skill: "TypeScript", description: "find a runtime error" },
+        { img: typescript, skill: "TypeScript", description: "find a runtime error and its used js" },
     ];
 
     return (<>
@@ -28,7 +28,7 @@ const Skills = () => {
                 {skill.map((e, i) => (
                     <div key={i} className='bg-gray-800 rounded-2xl text-white flex flex-col  gap-3 justify-center items-center text-center h-50 w-50 p-5'>
                         <div>
-                            <img src={e.img} className='w-20 rounded' alt="img" />
+                            <img src={e.img} className='w-20 h-20 rounded' alt="img" />
                         </div>
                         <h1>{e.skill}</h1>
                         <h3>{e.description}</h3>
