@@ -1,50 +1,37 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/NavBar';
-import Banner from './components/Banner';
-import TechSkills from './components/TechSkills';
-import SoftSkills from './components/SoftSkills';
-import Certificates from './components/Certificates';
-import Contact from './components/Contact';
-import Education from './components/Education';
+import Home from './pages/Home';
+import Skills from './components/TechSkills';
 import Projects from './components/Projects';
+import Education from './components/Education';
+import Certificates from './components/Education';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
+import NotFound from './pages/NotFound';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'projects', 'skills', 'education', 'certificates', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) {
-        setActiveSection(current);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const App = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar activeSection={activeSection} />
-      <Banner />
-      <Projects />
-      <TechSkills />
-      <SoftSkills />
-      <Education />
-      <Certificates />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+        <Navbar />
+        <AnimatePresence mode="wait">
+          <main className="pt-16">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/certificates" element={<Certificates />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </AnimatePresence>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

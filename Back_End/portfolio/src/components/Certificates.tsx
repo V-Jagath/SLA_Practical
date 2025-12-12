@@ -1,40 +1,61 @@
 import { motion } from 'framer-motion';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
 
+interface Certificate {
+    title: string;
+    issuer: string;
+    date: string;
+    description: string;
+    credentialId: string;
+    link: string;
+}
+
 const Certificates = () => {
-    const certificates = [
+    const certificates: Certificate[] = [
         {
-            title: 'React Developer Certification',
+            title: 'Advanced React',
             issuer: 'Meta',
-            date: '2024',
+            date: 'Dec 2025',
             description: 'Advanced React concepts and best practices',
-            credentialId: 'CERT-1234',
+            credentialId: 'EDFSV6W51H6J',
+            link: '#',
         },
         {
-            title: 'TypeScript Fundamentals',
+            title: 'Frontend Web Development',
+            issuer: 'Reliance Foundation Skilling Academy',
+            date: 'Sep 2025',
+            description: 'Frontend development using HTML, CSS, JavaScript and Bootstrap.',
+            credentialId: 'RFSA000302099',
+            link: '#',
+        },
+        {
+            title: 'Web Development',
             issuer: 'Microsoft',
-            date: '2023',
-            description: 'TypeScript development and type systems',
-            credentialId: 'TS-5678',
+            date: 'Oct 2025',
+            description: 'Web development using HTML, CSS, and JavaScript.',
+            credentialId: 'MS123456',
+            link: '#',
         },
         {
-            title: 'AWS Cloud Practitioner',
-            issuer: 'Amazon Web Services',
-            date: '2023',
-            description: 'Cloud computing fundamentals',
-            credentialId: 'AWS-9012',
+            title: 'Programming with JavaScript',
+            issuer: 'Meta',
+            date: 'Sep 2025',
+            description: 'Advanced JavaScript with ES6+ features and modern coding practices.',
+            credentialId: 'SB3CQ8DQ815',
+            link: '#',
         },
         {
-            title: 'UI/UX Design Specialization',
-            issuer: 'Google',
-            date: '2022',
-            description: 'User-centered design principles',
-            credentialId: 'UX-3456',
+            title: 'HTML and CSS in Depth',
+            issuer: 'Meta',
+            date: 'Aug 2025',
+            description: 'HTML5 for modern, semantic, and structured web page development.',
+            credentialId: 'UVB2V9BT9VN5',
+            link: '#',
         },
     ];
 
     return (
-        <section id="certificates" className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -59,15 +80,16 @@ const Certificates = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-xl p-6 card-hover"
+                            whileHover={{ y: -5 }}
+                            className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300"
                         >
                             <div className="flex items-start justify-between mb-4">
                                 <div className="flex items-center space-x-3">
-                                    <div className="p-3 bg-blue-100 rounded-lg">
+                                    <div className="p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg group-hover:scale-110 transition-transform duration-300">
                                         <Award className="w-6 h-6 text-blue-600" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-800">
+                                        <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
                                             {cert.title}
                                         </h3>
                                         <p className="text-blue-600 font-medium">{cert.issuer}</p>
@@ -83,12 +105,17 @@ const Certificates = () => {
 
                             <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                                 <span className="text-sm text-gray-500">
-                                    Credential ID: {cert.credentialId}
+                                    ID: {cert.credentialId}
                                 </span>
-                                <button className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                                <a
+                                    href={cert.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors group"
+                                >
                                     View Certificate
-                                    <ExternalLink className="w-4 h-4 ml-1" />
-                                </button>
+                                    <ExternalLink className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                </a>
                             </div>
                         </motion.div>
                     ))}
