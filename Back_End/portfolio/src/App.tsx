@@ -3,10 +3,10 @@ import Navbar from './components/NavBar';
 import Banner from './components/Banner';
 import TechSkills from './components/TechSkills';
 import SoftSkills from './components/SoftSkills';
-import Certificates from './pages/Certificates';
-import Contact from './pages/Contact';
-import Education from './pages/Education';
-import Projects from './pages/Projects';
+import Certificates from './components/Certificates';
+import Contact from './components/Contact';
+import Education from './components/Education';
+import Projects from './components/Projects';
 import Footer from './components/Footer';
 
 function App() {

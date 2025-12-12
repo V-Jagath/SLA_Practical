@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import photo from '../assets/images/projects/LinkedIn Profile .png'
 
 const Banner = () => {
     const socialLinks = [
-        { icon: Github, href: '#', label: 'GitHub' },
-        { icon: Linkedin, href: '#', label: 'LinkedIn' },
-        { icon: Mail, href: '#contact', label: 'Email' },
+        { icon: Github, href: 'github.com/v-jagath', label: 'GitHub' },
+        { icon: Linkedin, href: 'www.linkedin.com/in/jagathdevloper', label: 'LinkedIn' },
+        { icon: Mail, href: 'mailto:jagath9360@gmail.com', label: 'Email' },
     ];
 
     return (
-        <section id="home" className="min-h-screen flex items-center pt-20">
+        <section id="home" className="min-h-screen flex items-center pt-3">
             <div className="container mx-auto px-6 py-20">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -31,9 +32,8 @@ const Banner = () => {
                             </span>
                         </h1>
 
-                        <p className="text-xl text-gray-600">
-                            A passionate developer creating beautiful, functional web experiences
-                            with modern technologies and clean design principles.
+                        <p className=" text-lg text-gray-600">
+                            Frontend Developer with skills in React, Next.js, TypeScript, JavaScript ES6+, HTML, and CSS. Currently a MERN Stack Developer Intern with hands-on experience building real-world, responsive web applications.
                         </p>
 
                         <div className="flex flex-wrap gap-4 pt-4">
@@ -74,11 +74,18 @@ const Banner = () => {
                     >
                         <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full animate-float"></div>
+
                             <div className="absolute inset-4 bg-white rounded-full animate-float" style={{ animationDelay: '0.2s' }}></div>
-                            <div className="absolute inset-8 bg-gradient-to-br from-blue-100 to-white rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '0.4s' }}>
-                                {/* <Code2 className="w-32 h-32 text-blue-600" /> */}
+
+                            <div className="absolute inset-8 bg-gradient-to-br from-blue-100 to-white rounded-full flex items-center justify-center overflow-hidden animate-float" style={{ animationDelay: '0.4s' }}>
+                                <img
+                                    src={photo}
+                                    alt="profile"
+                                    className="w-full h-full object-cover object-top"
+                                />
                             </div>
                         </div>
+
                     </motion.div>
                 </div>
             </div>
