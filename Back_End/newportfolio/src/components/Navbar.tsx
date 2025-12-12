@@ -10,16 +10,19 @@ const Navbar = () => {
     ];
 
     return (<>
-        <div className="bg-transparent flex justify-between">
+        <div className="bg-gray-100 flex justify-between p-4 items-center">
+
             <div>
-                <h1>Portfolio</h1>
+                <h1 className="font-bold text-3xl"> {"</>"} Portfolio</h1>
             </div>
-            <div>
+
+            <div className="flex gap-8 items-center">
                 {Navitems.map((e) => (
-                    <a className="" href="">{e.label}</a>
+                    <a key={e.id} className="font-bold text-lg text-center hover:bg-gray-700 hover:text-white p-1 rounded" href="">{e.label}</a>
                 ))}
             </div>
-        </div>
+
+        </div >
     </>)
 };
 
