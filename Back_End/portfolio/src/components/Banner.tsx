@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
+import photo from '../assets/images/projects/LinkedIn Profile .png'
 interface SocialLink {
     icon: React.ComponentType<{ className?: string }>;
     href: string;
@@ -14,6 +15,36 @@ const Banner = () => {
         { icon: Linkedin, href: 'https://www.linkedin.com/in/jagathdevloper', label: 'LinkedIn' },
         { icon: Mail, href: 'mailto:jagath9360@gmail.com', label: 'Email' },
     ];
+
+    const [roleIndex, setRoleIndex] = useState(0);
+    const [text, setText] = useState('');
+    const [isTyping, setIsTyping] = useState(true);
+    const roles = ['Frontend Developer', 'Web Developer', 'MERN Developer'];
+
+    useEffect(() => {
+        let timeout: NodeJS.Timeout;
+
+        if (isTyping) {
+            if (text.length < roles[roleIndex].length) {
+                timeout = setTimeout(() => {
+                    setText(roles[roleIndex].substring(0, text.length + 1));
+                }, 100);
+            } else {
+                timeout = setTimeout(() => setIsTyping(false), 2000);
+            }
+        } else {
+            if (text.length > 0) {
+                timeout = setTimeout(() => {
+                    setText(text.substring(0, text.length - 1));
+                }, 50);
+            } else {
+                setIsTyping(true);
+                setRoleIndex((prev) => (prev + 1) % roles.length);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [text, isTyping, roleIndex]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -36,7 +67,7 @@ const Banner = () => {
     };
 
     return (
-        <section className="min-h-screen flex items-center pt-20 bg-gradient-to-b from-white via-blue-50/30 to-white">
+        <section className="min-h-screen flex items-center pt-5 bg-gradient-to-b from-white via-blue-50/30 to-white">
             <div className="container mx-auto px-6 py-12">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div
@@ -68,13 +99,22 @@ const Banner = () => {
                                     <Sparkles className="absolute -top-4 -right-6 w-8 h-8 text-blue-300 animate-float" />
                                 </span>
                             </span>
+                            <div className="mt-4 text-3xl lg:text-4xl h-16 flex items-center">
+                                <span className="text-gray-700">I am a</span>
+                                <span className="ml-2 relative">
+                                    <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent font-bold">
+                                        {text}
+                                        <span className="absolute right-0 top-0 w-0.5 h-full bg-blue-500 animate-pulse" />
+                                    </span>
+                                </span>
+                            </div>
                         </motion.h1>
 
                         <motion.p
                             variants={itemVariants}
                             className="text-lg text-gray-600 leading-relaxed"
                         >
-                            Frontend Developer specializing in React, Next.js, and modern web technologies.
+                            Specializing in React, Next.js, and modern web technologies.
                             I create beautiful, performant web experiences with clean code and thoughtful design.
                         </motion.p>
 
@@ -121,15 +161,15 @@ const Banner = () => {
                     >
                         <div className="relative w-72 h-72 lg:w-96 lg:h-96">
                             {/* Outer glow */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-200 rounded-full blur-xl opacity-20 animate-float" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full blur-xl opacity-20 animate-float" />
 
                             {/* Main circle */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-blue-50 rounded-full shadow-lg border border-blue-100" />
 
                             {/* Image container */}
                             <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-200 flex items-center justify-center">
-                                    <span className="text-white text-4xl font-bold">JD</span>
+                                <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-300 flex items-center justify-center">
+                                    <span className="text-blue-300 text-4xl font-bold mt-20"><img src={photo} alt="Jagath_pic" /></span>
                                 </div>
                                 {/* Gradient overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />

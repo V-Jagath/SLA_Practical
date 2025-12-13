@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Skills from './components/TechSkills';
 import Projects from './components/Projects';
 import Education from './components/Education';
-import Certificates from './components/Education';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound';

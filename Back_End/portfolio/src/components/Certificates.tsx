@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
+import html from '../assets/images/certificates/HTML & CSS in Depth - Meta.pdf';
+import javascript from '../assets/images/certificates/Programming in Javascript - Meta.pdf';
+import react from '../assets/images/certificates/Advanced React.pdf';
+import frontend from '../assets/images/certificates/Frontend_web_devloper.pdf';
+import webdevloper from '../assets/images/certificates/Microsoft - Web Development .pdf';
+
 
 interface Certificate {
     title: string;
@@ -7,7 +13,7 @@ interface Certificate {
     date: string;
     description: string;
     credentialId: string;
-    link: string;
+    link: any;
 }
 
 const Certificates = () => {
@@ -18,7 +24,7 @@ const Certificates = () => {
             date: 'Dec 2025',
             description: 'Advanced React concepts and best practices',
             credentialId: 'EDFSV6W51H6J',
-            link: '#',
+            link: { react },
         },
         {
             title: 'Frontend Web Development',
@@ -26,7 +32,7 @@ const Certificates = () => {
             date: 'Sep 2025',
             description: 'Frontend development using HTML, CSS, JavaScript and Bootstrap.',
             credentialId: 'RFSA000302099',
-            link: '#',
+            link: { frontend },
         },
         {
             title: 'Web Development',
@@ -34,7 +40,7 @@ const Certificates = () => {
             date: 'Oct 2025',
             description: 'Web development using HTML, CSS, and JavaScript.',
             credentialId: 'MS123456',
-            link: '#',
+            link: { webdevloper },
         },
         {
             title: 'Programming with JavaScript',
@@ -42,7 +48,7 @@ const Certificates = () => {
             date: 'Sep 2025',
             description: 'Advanced JavaScript with ES6+ features and modern coding practices.',
             credentialId: 'SB3CQ8DQ815',
-            link: '#',
+            link: { javascript },
         },
         {
             title: 'HTML and CSS in Depth',
@@ -50,7 +56,7 @@ const Certificates = () => {
             date: 'Aug 2025',
             description: 'HTML5 for modern, semantic, and structured web page development.',
             credentialId: 'UVB2V9BT9VN5',
-            link: '#',
+            link: { html },
         },
     ];
 

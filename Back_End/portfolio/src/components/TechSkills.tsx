@@ -44,7 +44,7 @@ const Skills = () => {
     ];
 
     return (
-        <div className="space-y-20 py-20">
+        <div className="space-y-20 py-5">
             {/* Technical Skills */}
             <section className="bg-white">
                 <div className="container mx-auto px-6">
