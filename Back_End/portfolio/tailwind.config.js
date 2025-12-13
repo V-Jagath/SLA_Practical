@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: 'class',
+    darkMode: 'class', // This is CRITICAL - must be 'class'
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
     ],
@@ -26,9 +26,6 @@ module.exports = {
                     '0%': { backgroundPosition: '-200px 0' },
                     '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
                 },
-            },
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             },
         },
     },

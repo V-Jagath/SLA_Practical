@@ -12,7 +12,6 @@ const Home = () => {
     <div className="space-y-20 pb-20">
       <Banner />
       <TechSkills />
-      <SoftSkills />
       <Internship />
       <Projects />
       <Certificates />

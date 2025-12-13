@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import {
     SiReact, SiTypescript, SiTailwindcss,
-    SiNodedotjs, SiGit, SiHtml5,
-    SiCss3, SiJavascript, SiBootstrap,
-    SiGithub, SiNextdotjs,
+    SiHtml5, SiCss3, SiJavascript,
+    SiBootstrap, SiGithub, SiNextdotjs, SiGit
 } from 'react-icons/si';
 import { Users, MessageSquare, Target, Lightbulb, Zap, Heart } from 'lucide-react';
 
@@ -29,9 +28,9 @@ const Skills = () => {
         { icon: SiJavascript, name: 'JavaScript', level: 'Advanced', color: 'text-yellow-500' },
         { icon: SiTypescript, name: 'TypeScript', level: 'Advanced', color: 'text-blue-600' },
         { icon: SiReact, name: 'React', level: 'Advanced', color: 'text-cyan-500' },
-        { icon: SiNextdotjs, name: 'Next.js', level: 'Intermediate', color: 'text-gray-900' },
+        { icon: SiNextdotjs, name: 'Next.js', level: 'Intermediate', color: 'text-gray-900 dark:text-gray-100' },
         { icon: SiGit, name: 'Git', level: 'Advanced', color: 'text-orange-600' },
-        { icon: SiGithub, name: 'GitHub', level: 'Advanced', color: 'text-gray-900' },
+        { icon: SiGithub, name: 'GitHub', level: 'Advanced', color: 'text-gray-900 dark:text-gray-100' },
     ];
 
     const softSkills: SoftSkill[] = [
@@ -44,9 +43,8 @@ const Skills = () => {
     ];
 
     return (
-        <div className="space-y-20 py-5">
-            {/* Technical Skills */}
-            <section className="bg-white">
+        <div className="space-y-20 py-20">
+            <section className="bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -55,10 +53,10 @@ const Skills = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                             Technical Skills
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Technologies and tools I work with to bring ideas to life
                         </p>
                     </motion.div>
@@ -72,22 +70,21 @@ const Skills = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ scale: 1.05 }}
-                                className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center"
+                                className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 shadow-sm hover:shadow-xl dark:hover:shadow-gray-900 transition-all duration-300 flex flex-col items-center"
                             >
                                 <div className="relative mb-4">
                                     <skill.icon className={`w-12 h-12 ${skill.color} transition-transform group-hover:scale-110`} />
                                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full blur opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                                 </div>
-                                <h3 className="font-semibold text-gray-800 mb-1">{skill.name}</h3>
-                                <span className="text-sm text-gray-500">{skill.level}</span>
+                                <h3 className="font-semibold text-gray-800 dark:text-white mb-1">{skill.name}</h3>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}</span>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Soft Skills */}
-            <section className="bg-gradient-to-b from-gray-50 to-white">
+            <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -96,10 +93,10 @@ const Skills = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                             Soft Skills
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Beyond technical expertise, these skills help me work effectively and deliver value
                         </p>
                     </motion.div>
@@ -113,15 +110,15 @@ const Skills = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -5 }}
-                                className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300"
+                                className="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-gray-900 transition-all duration-300"
                             >
-                                <div className="inline-flex p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    <skill.icon className="w-8 h-8 text-blue-600" />
+                                <div className="inline-flex p-3 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                    <skill.icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                     {skill.title}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-gray-300">
                                     {skill.description}
                                 </p>
                             </motion.div>

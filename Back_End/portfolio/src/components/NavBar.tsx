@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../pages/ThemeContext';
 
 interface NavItem {
     id: number;
@@ -12,6 +13,7 @@ interface NavItem {
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const { theme, toggleTheme } = useTheme();
 
     const Navitems: NavItem[] = [
         { id: 1, label: "Home", path: "/" },
@@ -27,68 +29,92 @@ const Navbar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm border-b border-gray-100"
+            className="fixed top-0 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg z-50 shadow-sm dark:shadow-gray-900/50 border-b border-gray-200/50 dark:border-gray-800/50"
         >
-            <div className="container mx-auto px-6 py-4">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
                 <div className="flex justify-between items-center">
-                    <Link to="/" className="flex items-center space-x-2 group">
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-300 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
-                            <span className="text-white font-bold text-lg">{'</>'}</span>
+                    <Link to="/" className="flex items-center space-x-3 group">
+                        <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 dark:from-blue-500 dark:to-blue-300 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+                            <span className="text-white font-bold text-xl">{'</>'}</span>
                         </div>
-                        <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                            Portfolio
-                        </span>
+                        <div>
+                            <span className="text-2xl font-bold text-gray-900 dark:text-white block">Portfolio</span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Developer</span>
+                        </div>
                     </Link>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        {Navitems.map((item) => (
-                            <Link
-                                key={item.id}
-                                to={item.path}
-                                className={`relative text-sm font-medium transition-colors duration-300 ${location.pathname === item.path
-                                    ? 'text-blue-600'
-                                    : 'text-gray-600 hover:text-blue-600'
-                                    }`}
-                            >
-                                {item.label}
-                                {location.pathname === item.path && (
-                                    <motion.div
-                                        layoutId="underline"
-                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300"
-                                    />
-                                )}
-                            </Link>
-                        ))}
-                    </div>
+                    <div className="flex items-center gap-4">
+                        {/* Desktop Menu */}
+                        <div className="hidden lg:flex items-center space-x-1">
+                            {Navitems.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    to={item.path}
+                                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${location.pathname === item.path
+                                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                                        }`}
+                                >
+                                    {item.label}
+                                    {location.pathname === item.path && (
+                                        <motion.div
+                                            layoutId="nav-indicator"
+                                            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-500 dark:to-blue-300 rounded-full"
+                                        />
+                                    )}
+                                </Link>
+                            ))}
+                        </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                        aria-label="Toggle menu"
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                        {/* Theme Toggle */}
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={toggleTheme}
+                            className="relative w-12 h-6 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-full p-1 transition-all duration-300"
+                            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                        >
+                            <motion.div
+                                layout
+                                className={`absolute w-4 h-4 rounded-full bg-white dark:bg-gray-900 shadow-lg flex items-center justify-center ${theme === 'light' ? 'left-1' : 'left-7'
+                                    }`}
+                                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                            >
+                                {theme === 'light' ? (
+                                    <Sun className="w-2.5 h-2.5 text-yellow-500" />
+                                ) : (
+                                    <Moon className="w-2.5 h-2.5 text-blue-400" />
+                                )}
+                            </motion.div>
+                        </motion.button>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            aria-label="Toggle menu"
+                        >
+                            {isOpen ? <X size={22} /> : <Menu size={22} />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu */}
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden mt-4 pb-4"
+                        className="lg:hidden mt-4 overflow-hidden"
                     >
-                        <div className="flex flex-col space-y-4">
+                        <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-2 border border-gray-200 dark:border-gray-700">
                             {Navitems.map((item) => (
                                 <Link
                                     key={item.id}
                                     to={item.path}
                                     onClick={() => setIsOpen(false)}
-                                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${location.pathname === item.path
-                                        ? 'bg-blue-50 text-blue-600'
-                                        : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                                    className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 mb-1 last:mb-0 ${location.pathname === item.path
+                                        ? 'text-blue-600 dark:text-blue-400 bg-white dark:bg-gray-900 shadow-sm'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/50 dark:hover:bg-gray-900/50'
                                         }`}
                                 >
                                     {item.label}

@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        color-scheme: light dark;
+    }
+
+    /* Force light theme variables */
+    :root.light {
+        --background: 255 255 255;
+        --foreground: 15 23 42;
+    }
+
+    /* Force dark theme variables */
+    :root.dark {
+        --background: 15 23 42;
+        --foreground: 248 250 252;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white text-gray-900 transition-colors duration-300;
+    }
+
+    .dark body {
+        @apply bg-gray-900 text-gray-100;
+    }
+}
+
+/* Rest of your custom styles... */
